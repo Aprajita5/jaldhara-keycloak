@@ -10,7 +10,7 @@
                 <div class="field">
                         <label for="username"><#if !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
                         <input id="username" name="username" value="${(login.username!'')?html}" type="hidden" autofocus autocomplete="off" />
-                        <input id="channelUsername" name="channelusername" value="${(login.username!'')?html}" type="text" autofocus autocomplete="off" />
+                        <input id="channelUsername" name="channelusername" value="${(login.channelusername!'')?html}" type="text" autofocus autocomplete="off" />
                 </div>
 
                 <div class="field">
@@ -69,7 +69,7 @@
 $("#kc-login").click(function () {
 var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 var sEmail = $("#channelUsername").val();
-if (filter.test(sEmail) || sEmail.search('@jaldhara') > -1) {
+if (filter.test(sEmail) || sEmail.search('@jaldhara') > -1 || sEmail === '') {
   $("#username").val(function() {
         return $("#channelUsername").val();
     });

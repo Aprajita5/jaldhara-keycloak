@@ -9,7 +9,7 @@
             <meta name="${meta?split('==')[0]}" content="${meta?split('==')[1]}"/>
         </#list>
     </#if>
-    <title>Log in to jaldhara</title>
+    <title><#nested "title"></title>
     <link rel="icon" href="${url.resourcesPath}/img/favicon.ico" />
     <#if properties.styles?has_content>
         <#list properties.styles?split(' ') as style>
@@ -76,7 +76,7 @@
                                             <img src="${url.resourcesPath}/img/jaldhara_anbileru_adaleru.png" />
                                         </div>
                                         <div class="ui basic segment">
-                                        <h2 class="ui header">Log in to Jaldhara</h2>
+                                        <h2 class="ui header"><#nested "title"></h2>
                                         </div>
                                        <div class="content signin-contentPadding">
                                         <#nested "form">

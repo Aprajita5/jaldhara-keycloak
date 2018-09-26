@@ -9,7 +9,8 @@
             <form id="kc-form-login" class="ui form pre-signin" action="${url.loginAction}" method="post">
                 <div class="field">
                         <label for="username"><#if !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
-                        <input id="username" name="username" value="${(login.username!'')?html}" type="text" autofocus autocomplete="off" />
+                        <input id="username" name="username" value="${(login.username!'')?html}" type="hidden" autofocus autocomplete="off" />
+                        <input id="channelUsername" name="channelusername" value="${(login.username!'')?html}" type="text" autofocus autocomplete="off" />
                 </div>
 
                 <div class="field">
@@ -67,13 +68,15 @@
 <script>
 $("#kc-login").click(function () {
 var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-var sEmail = $("#username").val();
+var sEmail = $("#channelUsername").val();
 if (filter.test(sEmail) || sEmail.search('@jaldhara') > -1) {
-  return true;
+  $("#username").val(function() {
+        return $("#channelUsername").val();
+    });
 }
 else {
     $("#username").val(function() {
-        return this.value + '@jaldhara';
+        return $("#channelUsername").val() + '@jaldhara';
     });
 }   
 });    

@@ -76,7 +76,7 @@
                                             <img src="${url.resourcesPath}/img/jaldhara_anbileru_adaleru.png" />
                                         </div>
                                         <div class="ui basic segment">
-                                        <h2 class="ui header"><#nested "title"></h2>
+                                        <h2 class="ui header">${msg("loginTitleHtml",(realm.displayNameHtml!''))}</h2>
                                         </div>
                                        <div class="content signin-contentPadding">
                                         <#nested "form">

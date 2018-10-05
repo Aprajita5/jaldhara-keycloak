@@ -325,6 +325,23 @@ div#kc-content-wrapper {
     font-weight: bold !important;
 }
 
+.terms-of-usebtn {
+    border: none !important;
+    color: white !important;
+    padding: 14px 27px !important;
+    text-decoration: none !important;
+    margin: 4px 2px !important;
+    cursor: pointer !important;
+}
+
+.acceptbtn{
+    background-color: #2196F3 !important;
+}
+
+.declindbtn{
+    background-color: #9a9999 !important;
+}
+
 
 @media (max-width: 767px) {
     #kc-logo-wrapper {
